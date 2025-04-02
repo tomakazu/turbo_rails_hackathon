@@ -32,6 +32,21 @@ class TaskBroadcaster
         target: "completed_task_count",
         html: Task.where(status: "Completed").count.to_s
       )
+    when :destroy
+      Turbo::StreamsChannel.broadcast_remove_to(
+        "task_list",
+        target: dom_id(task)
+      )
+      Turbo::StreamsChannel.broadcast_replace_to(
+        "task_list",
+        target: "completed_task_count",
+        html: Task.where(status: "Completed").count.to_s
+      )
+      Turbo::StreamsChannel.broadcast_replace_to(
+        "task_list",
+        target: "task_count",
+        html: Task.count.to_s
+      )
     end
   end
 

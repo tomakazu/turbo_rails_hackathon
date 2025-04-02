@@ -7,6 +7,6 @@ class Task
 
   after_create -> { TaskBroadcaster.broadcast_task(self, action: :create) }
   after_update -> { TaskBroadcaster.broadcast_task(self, action: :update) }
-
+  after_destroy -> { TaskBroadcaster.broadcast_task(self, action: :destroy) }
 
 end
