@@ -1,5 +1,6 @@
 <div class="w-full flex flex-wrap gap-6" data-controller="task">
 
+  <%= turbo_stream_from "task_list" %>
   <!-- Status Bar -->
   <%= render 'tasks/progress_bar', completed_width_percent: @completed_width_percent, remaining_width_percent: @remaining_width_percent %>
 
