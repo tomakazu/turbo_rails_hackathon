@@ -6,5 +6,7 @@ class Task
   field :status, type: String
 
   after_create -> { TaskBroadcaster.broadcast_task(self, action: :create) }
+  after_update -> { TaskBroadcaster.broadcast_task(self, action: :update) }
+
 
 end
