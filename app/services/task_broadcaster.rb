@@ -13,12 +13,12 @@ class TaskBroadcaster
       Turbo::StreamsChannel.broadcast_replace_to(
         "task_list",
         target: "task_count",
-        html: Task.count.to_s
+        html: "<span id='task_count' class='font-bold'>#{Task.count.to_s} </span>"
       )
       Turbo::StreamsChannel.broadcast_replace_to(
         "task_list",
         target: "completed_task_count",
-        html: Task.where(status: "Completed").count.to_s
+        html: "<span id='completed_task_count' class='font-bold'> #{Task.where(status: "Completed").count.to_s} </span>"
       )
       Turbo::StreamsChannel.broadcast_replace_to(
         "task_list",
@@ -36,7 +36,7 @@ class TaskBroadcaster
       Turbo::StreamsChannel.broadcast_replace_to(
         "task_list",
         target: "completed_task_count",
-        html: Task.where(status: "Completed").count.to_s
+        html: "<span id='completed_task_count' class='font-bold'> #{Task.where(status: "Completed").count.to_s} </span>"
       )
       Turbo::StreamsChannel.broadcast_replace_to(
         "task_list",
@@ -52,12 +52,12 @@ class TaskBroadcaster
       Turbo::StreamsChannel.broadcast_replace_to(
         "task_list",
         target: "completed_task_count",
-        html: Task.where(status: "Completed").count.to_s
+        html: "<span id='completed_task_count' class='font-bold'> #{Task.where(status: "Completed").count.to_s} </span>"
       )
       Turbo::StreamsChannel.broadcast_replace_to(
         "task_list",
         target: "task_count",
-        html: Task.count.to_s
+        html: "<span id='task_count' class='font-bold'>#{Task.count.to_s} </span>"
       )
       Turbo::StreamsChannel.broadcast_replace_to(
         "task_list",
